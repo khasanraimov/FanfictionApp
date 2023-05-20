@@ -212,6 +212,9 @@ class CreationViewController: UIViewController, UIImagePickerControllerDelegate,
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        imageView.layer.cornerRadius = imageView.frame.width / 5
+        imageView.clipsToBounds = true
     }
 
     @IBAction func saveButtonTapped(_ sender: Any) {

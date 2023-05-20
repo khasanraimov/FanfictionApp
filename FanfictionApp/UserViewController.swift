@@ -167,6 +167,8 @@ class UserViewController: UIViewController, UIImagePickerControllerDelegate & UI
     let storageRef = Storage.storage().reference()
 
     
+    
+    
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var fullNameTextField: UITextField!
     @IBOutlet weak var aboutMeTextView: UITextField!
@@ -180,6 +182,9 @@ class UserViewController: UIViewController, UIImagePickerControllerDelegate & UI
         
         // Load user's data
         loadUserData()
+        
+        profileImageView.layer.cornerRadius = profileImageView.frame.width / 5
+        profileImageView.clipsToBounds = true
     }
     
     @IBAction func saveButton(_ sender: Any) {
