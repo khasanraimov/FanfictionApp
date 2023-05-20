@@ -74,6 +74,14 @@ extension ChatViewController: UISearchBarDelegate {
         searchUserByName(name: searchText)    }
 }
 
+
+extension ChatViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedUser = users[indexPath.row]
+        self.performSegue(withIdentifier: "ChatDetailViewController", sender: selectedUser)
+    }
+}
+
 struct User {
     let userId: String
     let email: String

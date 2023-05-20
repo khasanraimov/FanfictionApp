@@ -16,6 +16,7 @@
 		F91019282A164C14009B47C7 /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91019272A164C14009B47C7 /* StoryViewController.swift */; };
 		F91019472A17B1E1009B47C7 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91019462A17B1E1009B47C7 /* UserViewController.swift */; };
 		F91019572A18F807009B47C7 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91019562A18F807009B47C7 /* ChatViewController.swift */; };
+		F910195C2A196CF9009B47C7 /* ChatDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F910195B2A196CEE009B47C7 /* ChatDetailViewController.swift */; };
 		F94243372A155B510009BFEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94243362A155B510009BFEA /* AppDelegate.swift */; };
 		F94243392A155B510009BFEA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94243382A155B510009BFEA /* SceneDelegate.swift */; };
 		F942433B2A155B510009BFEA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F942433A2A155B510009BFEA /* ViewController.swift */; };
@@ -59,6 +60,7 @@
 		F91019272A164C14009B47C7 /* StoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
 		F91019462A17B1E1009B47C7 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		F91019562A18F807009B47C7 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		F910195B2A196CEE009B47C7 /* ChatDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDetailViewController.swift; sourceTree = "<group>"; };
 		F94243332A155B510009BFEA /* FanfictionApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FanfictionApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F94243362A155B510009BFEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F94243382A155B510009BFEA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				F91019272A164C14009B47C7 /* StoryViewController.swift */,
 				F91019462A17B1E1009B47C7 /* UserViewController.swift */,
 				F91019562A18F807009B47C7 /* ChatViewController.swift */,
+				F910195B2A196CEE009B47C7 /* ChatDetailViewController.swift */,
 			);
 			path = FanfictionApp;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 				F91019232A164993009B47C7 /* StoriesViewController.swift in Sources */,
 				F91019472A17B1E1009B47C7 /* UserViewController.swift in Sources */,
 				F91019012A15808D009B47C7 /* LoginViewController.swift in Sources */,
+				F910195C2A196CF9009B47C7 /* ChatDetailViewController.swift in Sources */,
 				F94243412A155B510009BFEA /* FanfictionApp.xcdatamodeld in Sources */,
 				F910191E2A161248009B47C7 /* CreationViewController.swift in Sources */,
 				F91019192A161130009B47C7 /* BooksController.swift in Sources */,
