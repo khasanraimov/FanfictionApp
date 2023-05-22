@@ -31,6 +31,9 @@
 		F94243752A155EAE0009BFEA /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F94243742A155EAE0009BFEA /* FirebaseAuth */; };
 		F94243772A155EAE0009BFEA /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F94243762A155EAE0009BFEA /* FirebaseFirestore */; };
 		F94243792A155EAE0009BFEA /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = F94243782A155EAE0009BFEA /* FirebaseDatabase */; };
+		F9D747872A1B7C06003F795A /* MessageKit in Frameworks */ = {isa = PBXBuildFile; productRef = F9D747862A1B7C06003F795A /* MessageKit */; };
+		F9D7478C2A1B9177003F795A /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D7478B2A1B9177003F795A /* Service.swift */; };
+		F9D747912A1B91F4003F795A /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D747902A1B91F4003F795A /* File.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +80,8 @@
 		F942435B2A155B710009BFEA /* FanfictionAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FanfictionAppUITests.swift; sourceTree = "<group>"; };
 		F942435D2A155B710009BFEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F942436C2A155C210009BFEA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F9D7478B2A1B9177003F795A /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		F9D747902A1B91F4003F795A /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +93,7 @@
 				F94243752A155EAE0009BFEA /* FirebaseAuth in Frameworks */,
 				F94243792A155EAE0009BFEA /* FirebaseDatabase in Frameworks */,
 				F94243772A155EAE0009BFEA /* FirebaseFirestore in Frameworks */,
+				F9D747872A1B7C06003F795A /* MessageKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,6 +156,8 @@
 				F91019462A17B1E1009B47C7 /* UserViewController.swift */,
 				F91019562A18F807009B47C7 /* ChatViewController.swift */,
 				F910195B2A196CEE009B47C7 /* ChatDetailViewController.swift */,
+				F9D7478B2A1B9177003F795A /* Service.swift */,
+				F9D747902A1B91F4003F795A /* File.swift */,
 			);
 			path = FanfictionApp;
 			sourceTree = "<group>";
@@ -193,6 +201,7 @@
 				F94243742A155EAE0009BFEA /* FirebaseAuth */,
 				F94243762A155EAE0009BFEA /* FirebaseFirestore */,
 				F94243782A155EAE0009BFEA /* FirebaseDatabase */,
+				F9D747862A1B7C06003F795A /* MessageKit */,
 			);
 			productName = FanfictionApp;
 			productReference = F94243332A155B510009BFEA /* FanfictionApp.app */;
@@ -267,6 +276,7 @@
 			mainGroup = F942432A2A155B510009BFEA;
 			packageReferences = (
 				F94243712A155EAE0009BFEA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				F9D747852A1B7C06003F795A /* XCRemoteSwiftPackageReference "MessageKit" */,
 			);
 			productRefGroup = F94243342A155B510009BFEA /* Products */;
 			projectDirPath = "";
@@ -314,8 +324,10 @@
 			files = (
 				F91019232A164993009B47C7 /* StoriesViewController.swift in Sources */,
 				F91019472A17B1E1009B47C7 /* UserViewController.swift in Sources */,
+				F9D7478C2A1B9177003F795A /* Service.swift in Sources */,
 				F91019012A15808D009B47C7 /* LoginViewController.swift in Sources */,
 				F910195C2A196CF9009B47C7 /* ChatDetailViewController.swift in Sources */,
+				F9D747912A1B91F4003F795A /* File.swift in Sources */,
 				F94243412A155B510009BFEA /* FanfictionApp.xcdatamodeld in Sources */,
 				F910191E2A161248009B47C7 /* CreationViewController.swift in Sources */,
 				F91019192A161130009B47C7 /* BooksController.swift in Sources */,
@@ -668,6 +680,14 @@
 				minimumVersion = 8.6.0;
 			};
 		};
+		F9D747852A1B7C06003F795A /* XCRemoteSwiftPackageReference "MessageKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MessageKit/MessageKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.5.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -690,6 +710,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F94243712A155EAE0009BFEA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseDatabase;
+		};
+		F9D747862A1B7C06003F795A /* MessageKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F9D747852A1B7C06003F795A /* XCRemoteSwiftPackageReference "MessageKit" */;
+			productName = MessageKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 
