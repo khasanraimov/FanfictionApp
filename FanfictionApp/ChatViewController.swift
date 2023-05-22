@@ -332,6 +332,23 @@ extension ChatViewController: UITableViewDelegate {
         
     }
 }
+
+struct User {
+    let userId: String
+    let email: String
+    let nickname: String
+    let fullName: String
+    let imageURL: String?
+    var dialogId: String? // новое поле
+
+    init(userId: String, data: [String: Any]) {
+        self.userId = userId
+        self.email = data["email"] as? String ?? ""
+        self.nickname = data["nickname"] as? String ?? ""
+        self.fullName = data["fullName"] as? String ?? ""
+        self.imageURL = data["profileImageUrl"] as? String
+    }
+}
 //class ChatViewController: UIViewController {
 //
 //    @IBOutlet weak var tableView: UITableView!
@@ -408,18 +425,4 @@ extension ChatViewController: UITableViewDelegate {
 //    }
 //}
 
-struct User {
-    let userId: String
-    let email: String
-    let nickname: String
-    let fullName: String
-    let imageURL: String?
 
-    init(userId: String, data: [String: Any]) {
-        self.userId = userId
-        self.email = data["email"] as? String ?? ""
-        self.nickname = data["nickname"] as? String ?? ""
-        self.fullName = data["fullName"] as? String ?? ""
-        self.imageURL = data["profileImageUrl"] as? String
-    }
-}

@@ -627,18 +627,24 @@ struct Message: MessageType {
          }
 }
 
-class ChatDetailViewController: MessagesViewController {
+class ChatDetailViewController: MessagesViewController, MessagesDisplayDelegate {
     var selectedUser: User?
+
     var currentSenderId: SenderType? {
-        return Sender(senderId: Auth.auth().currentUser?.uid ?? "", displayName: "Me")
+        didSet {
+            messagesCollectionView.reloadData()
+        }
     }
     var messages: [Message] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        messagesCollectionView.messagesDisplayDelegate = self
+
 
         navigationItem.title = selectedUser?.fullName
 //        currentSender = Sender(senderId: Auth.auth().currentUser?.uid ?? "", displayName: "Me")
+        currentSenderId = getCurrentSender()
 
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
@@ -657,27 +663,21 @@ class ChatDetailViewController: MessagesViewController {
             self.messagesCollectionView.scrollToLastItem(animated: true)
         }
     }
-
-//    private func sendNewMessage(_ message: Message) {
-//        let ref = Database.database().reference().child("chats").childByAutoId()
-//        let messageItem = [
-//            "id": message.messageId,
-//            "senderId": message.sender.senderId,
-//            "senderName": message.sender.displayName,
-//            "sentDate": message.sentDate.timeIntervalSince1970,
-//            "message": message.kind.self
-//        ] as [String : Any]
-//        ref.setValue(messageItem)
-//    }
     private func sendNewMessage(_ message: Message) {
         let ref = Database.database().reference().child("chats").childByAutoId()
-        let messageItem: [String: Any] = [
+        var messageItem: [String: Any] = [
             "id": message.messageId,
             "senderId": message.sender.senderId,
             "senderName": message.sender.displayName,
             "sentDate": message.sentDate.timeIntervalSince1970,
-            "message": MessageKind.text // prеобразуем в текст сообщения
+            "message": "" // преобразуем в строку сообщения // prеобразуем в текст сообщения
         ]
+        switch message.kind {
+            case .text(let text):
+                messageItem["message"] = text
+            default:
+                messageItem["message"] = ""
+            }
         ref.setValue(messageItem)
     }
 
@@ -694,13 +694,15 @@ extension ChatDetailViewController: MessagesDataSource, MessagesLayoutDelegate {
     func currentSender() -> SenderType {
         return currentSenderId!
     }
-    
-    
-    func getCurrentSender() -> SenderType {
+    func getCurrentSender() -> SenderType? {
         guard let currentUser = Auth.auth().currentUser else {
-            fatalError("User must be logged in")
+            print("User is not logged in")
+            return nil
         }
-        return Sender(senderId: currentUser.uid, displayName: "Me")
+        currentSenderId = Sender(senderId: currentUser.uid, displayName: "Me")
+            
+        return currentSenderId
+        
     }
     
     func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
@@ -742,14 +744,13 @@ extension ChatDetailViewController: MessagesDataSource, MessagesLayoutDelegate {
 
 extension ChatDetailViewController: InputBarAccessoryViewDelegate {
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
-        guard Auth.auth().currentUser != nil else {
+        guard let currentSenderId = currentSenderId else {
+            print("currentSenderId is nil")
             return
         }
-        
-        let message = Message(id: UUID().uuidString, sender: currentSenderId!, sentDate: Date(), kind: .text(text))
+        let message = Message(id: UUID().uuidString, sender: currentSenderId, sentDate: Date(), kind: .text(text))
         insertNewMessage(message)
         sendNewMessage(message)
-        
         inputBar.inputTextView.text = ""
         messagesCollectionView.scrollToLastItem(animated: true)
     }
