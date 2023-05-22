@@ -31,7 +31,8 @@ class StoriesViewController: UIViewController, UITableViewDelegate, UITableViewD
                 guard let storyDict = storyData.value as? [String: Any] else { continue }
                 let title = storyDict["title"] as? String ?? ""
                 let content = storyDict["content"] as? String ?? ""
-                let story = Story(title: title, content: content)
+                let author = storyDict["author"] as? String ?? ""
+                let story = Story(title: title, content: content, author: author)
                 self.stories.append(story)
             }
             self.tableViewOfSearch.reloadData()
@@ -85,6 +86,4 @@ class StoriesViewController: UIViewController, UITableViewDelegate, UITableViewD
             destinationVC.story = sender as? Story
         }
     }
-    
-
 }

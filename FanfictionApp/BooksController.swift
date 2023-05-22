@@ -36,9 +36,9 @@ class BooksController: UIViewController, UITableViewDelegate, UITableViewDataSou
                 guard let snapshotValue = snapshot.value as? [String: Any] else { return }
                 self.stories.removeAll()
                 for item in snapshotValue {
-                    if let storyData = item.value as? [String: Any], let title = storyData["title"] as? String, let content = storyData["content"] as? String {
+                    if let storyData = item.value as? [String: Any], let title = storyData["title"] as? String, let content = storyData["content"] as? String, let author = storyData["author"] as? String {
                         let imageString = storyData["imageUrl"] as? String
-                        let story = Story(title: title, content: content)
+                        let story = Story(title: title, content: content, author: author)
                         if let imageString = imageString, let imageUrl = URL(string: imageString) {
                             // загрузка картинки
                             URLSession.shared.dataTask(with: imageUrl, completionHandler: { (data, response, error) in
